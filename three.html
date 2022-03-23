@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D相册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url(7.jpg);
+            background-size: cover;
+            opacity: 0.9;
+        }
+        .box{
+            /*父元素设置为相对定位*/
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 300px auto;
+            transform-style: preserve-3d;
+            animation: move 5s infinite linear;
+        /*将动画绑定到盒子上 设置为无限循环  匀速*/
+        }
+        .minbox{
+            transform-style: preserve-3d;
+        }
+        .minbox,
+        .minbox li{
+            width: 200px;
+            height: 200px;
+            /*设置绝对定位 （子绝父相）*/
+            position: absolute;
+            background-size: cover;
+        }
+        ul{
+            list-style: none;
+        }
+        .minbox li:nth-child(1){
+            background-image: url(1.jpg);
+            transform: translateZ(100px);
+        }
+        .minbox li:nth-child(2){
+            background-image: url(2.jpg);
+            transform: rotateX(180deg) rotateZ(180deg) translateZ(100px);
+        }
+        .minbox li:nth-child(3){
+            background-image: url(3.jpg);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .minbox li:nth-child(4){
+            background-image: url(4.jpg);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .minbox li:nth-child(5){
+            background-image: url(5.jpg);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .minbox li:nth-child(6){
+            background-image: url(6.jpg);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        @keyframes move{/*设置动画 取名为move*/
+            0%{/*开始 设置X轴旋转13°Y轴0° 让盒子站起来*/
+                transform: rotateX(13deg) rotateY(0deg);
+            }
+            100%{/*结束 让盒子转一圈 也就是360°*/
+                transform: rotateX(13deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="minbox">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
